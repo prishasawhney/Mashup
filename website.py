@@ -54,7 +54,7 @@ def is_valid_email(email):
 
 def process_form_data(singer_name, num_videos, video_duration, email_id):
     output_mp3 = "102116052-output.mp3"
-    output_zip = output_mp3.replace(".mp3", ".zip")
+    
 
     if num_videos < 10:
         st.write("Number of songs should be greater than 10")
@@ -66,7 +66,8 @@ def process_form_data(singer_name, num_videos, video_duration, email_id):
         return
     cut_paths = cut_duration(mp3_files, video_duration)
     st.write(cut_paths)
-    merge_audio(cut_paths, output_mp3)
+    output_mp3 = merge_audio(cut_paths, output_mp3)
+    output_zip = output_mp3.replace(".mp3", ".zip")
     zip_file(output_mp3, output_zip)
     send_mail(email_id, output_zip)
     st.write("Emailed Successfully to {}".format(email_id))
