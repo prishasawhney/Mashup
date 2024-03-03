@@ -66,7 +66,7 @@ def merge_audio(mp3_files, output_filename):
             os.remove(song.replace("\"", ""))
     except Exception as e:
         print(f"Error occurred while merging audio files: {e}")
-    return output_name
+        
 
 def zip_file(input_filename, output_filename):
     with zipfile.ZipFile(output_filename, 'w') as zipf:
