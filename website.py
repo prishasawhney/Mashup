@@ -68,6 +68,8 @@ def process_form_data(singer_name, num_videos, video_duration, email_id):
     st.write(cut_paths)
     output_mp3 = merge_audio(cut_paths, output_mp3)
     output_zip = output_mp3.replace(".mp3", ".zip")
+    st.write(output_mp3)
+    st.write(output_zip)
     zip_file(output_mp3, output_zip)
     send_mail(email_id, output_zip)
     st.write("Emailed Successfully to {}".format(email_id))
