@@ -65,6 +65,7 @@ def process_form_data(singer_name, num_videos, video_duration, email_id):
         st.write("Duration should be greater than 20 seconds")
         return
     cut_paths = cut_duration(mp3_files, video_duration)
+    st.write(cut_paths)
     merge_audio(cut_paths, output_mp3)
     zip_file(output_mp3, output_zip)
     send_mail(email_id, output_zip)
